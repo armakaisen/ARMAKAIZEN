@@ -8,12 +8,14 @@ passport.use('local.signin', new localStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, async (req, username, password, done)=>{   
-    //console.log(req.body);
+    
+    console.log([username]);
+
     const filas = await db_pool.query('SELECT * FROM usuarios WHERE login = ?', [username]);
    
     if(filas.length > 0){
         const user = filas[0];
-        //console.log(user.clave);
+        console.log(user.clave);
         const validpassword = await helpers.comparePassword(password, user.clave);
        
         if(validpassword){
@@ -22,7 +24,7 @@ passport.use('local.signin', new localStrategy({
             done(null, false, req.flash('message', 'clave incorrecta'));
         }
 
-    }else{
+    }else{  
         return done(null, false, req.flash('message','usuario no existe'));
     }
 }));
@@ -41,7 +43,9 @@ passport.use('local.signup', new localStrategy({
         clave: password,
         nombre: fullname
     };
-    console.log(newUser);
+
+    //console.log(newUser);
+
     //newUser.password = await helpers.encryptPassword(password);
     newUser.clave = await helpers.encryptPassword(password);
     try {

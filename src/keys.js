@@ -1,4 +1,4 @@
-/*
+ /*
 module.exports = {
     database: {
         host: '192.168.0.10',
@@ -7,6 +7,7 @@ module.exports = {
         database: 'database_links' 
     }
 } 
+ 
 */
 
 module.exports = {
