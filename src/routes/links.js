@@ -104,6 +104,9 @@ ruta.post('/edtusuario/:id_usuario', async (req,res)=>{
         clave: password,
         nombre: fullname
     };
+    
+    console.log(updUsuario);
+
     updUsuario.clave = await helpers.encryptPassword(password);
 
     const link = await db_pool.query('UPDATE usuarios set ? WHERE id_usuario = ?', [updUsuario, id]);
