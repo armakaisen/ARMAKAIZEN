@@ -25,10 +25,33 @@
                     <td>
                         <div class="btn-group">
                             <div>
-                            <a href="/delete/{{id}}" class="btn btn-danger btn-sm">Delete</a>
+                                <!--<a href="/delete/{{id}}" class="btn btn-danger btn-sm">Delete</a> -->
+                                <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deletelink">Delete</a>
+                                <!-- Modal -->
+    <div class="modal fade" id="deletelink" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Registro:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{title}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <a href="/delete/{{id}}" role="button" class="btn btn-danger">Aceptar</a>
+                    <!--<button href="/delete/{{id}}" type="button" class="btn btn-danger">Aceptar</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
                             </div>
                             <div>
-                            <a href="/edit/{{id}}" class="btn btn-secondary ml-1 btn-sm">Edit</a>
+                                <a href="/edit/{{id}}" class="btn btn-secondary ml-1 btn-sm">Edit</a> 
                             </div>
                         </div>
                     </td>                       
@@ -36,4 +59,7 @@
            {{/each}}
         </tbody>
     </table>
+
+    
 </div>
+

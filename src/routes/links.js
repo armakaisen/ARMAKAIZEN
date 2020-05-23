@@ -60,7 +60,7 @@ ruta.get('/delete/:id', isLoggedIn, async (req, res)=>{
 
 ruta.get('/edit/:id', isLoggedIn, async (req,res)=>{
     const { id } = req.params;
-    //console.log(id);
+
     const link = await db_pool.query('SELECT * FROM links WHERE id = ?', [id]);
     //console.log(link[0]);
     res.render('links/edit', {link: link[0]});
