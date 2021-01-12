@@ -11,7 +11,7 @@
                 <tr>
                     <td>
                         <a href="{{url}}" target="_blank">
-                            {{ title }}                
+                           {{ title }}        
                         </a>
                     </td>
                     
@@ -25,9 +25,12 @@
                     <td>
                         <div class="btn-group">
                             <div>
-                                <!--<a href="/delete/{{id}}" class="btn btn-danger btn-sm">Delete</a> -->
-                                <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deletelink">Delete</a>
+                                   <a href="/confirmar/{{id}}" class="btn btn-danger btn-sm">Delete</a> 
+                            <!--
+                                <a href="/confirmar/{{id}}" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deletelink">Delete</a>
+                                --> 
                                 <!-- Modal -->
+     <!--                           
     <div class="modal fade" id="deletelink" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -39,16 +42,20 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    {{id}}
                     {{title}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     <a href="/delete/{{id}}" role="button" class="btn btn-danger">Aceptar</a>
+                    -->
                     <!--<button href="/delete/{{id}}" type="button" class="btn btn-danger">Aceptar</button> -->
+        <!--
                 </div>
             </div>
         </div>
     </div>
+    -->
                             </div>
                             <div>
                                 <a href="/edit/{{id}}" class="btn btn-secondary ml-1 btn-sm">Edit</a> 

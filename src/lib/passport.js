@@ -9,13 +9,13 @@ passport.use('local.signin', new localStrategy({
     passReqToCallback: true
 }, async (req, username, password, done)=>{   
     
-    console.log([username]);
+    //console.log([username]);
 
     const filas = await db_pool.query('SELECT * FROM usuarios WHERE login = ?', [username]);
    
     if(filas.length > 0){
         const user = filas[0];
-        console.log(user.clave);
+        //console.log(user.clave);
         const validpassword = await helpers.comparePassword(password, user.clave);
        
         if(validpassword){

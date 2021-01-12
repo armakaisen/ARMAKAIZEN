@@ -60,21 +60,6 @@ ruta.get('/delete/:id', isLoggedIn, async (req, res)=>{
     res.redirect('/list');
 })
 
-ruta.get('/confirmar/:id', isLoggedIn, async (req,res)=>{
-    const { id } = req.params;
-
-    const link = await db_pool.query('SELECT * FROM links WHERE id = ?', [id]);
-    //console.log(link[0]);
-   
-    res.render('links/confirmar', {link: link[0]});
-})
-
-ruta.post('/confirmar/.id', isLoggedIn, (req, res)=>{
-    console.log('post confirmar');
-    res.redirect('/list')
-})
-
-
 ruta.get('/edit/:id', isLoggedIn, async (req,res)=>{
     const { id } = req.params;
 
