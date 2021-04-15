@@ -97,7 +97,7 @@ ruta.get('/edtusuario/:id_usuario', isLoggedIn, async (req,res)=>{
 })
 
 ruta.post('/edtusuario/:id_usuario', async (req,res)=>{
-    const { id } = req.params;    
+    const { id_usuario } = req.params;    
     const { fullname, username, password } = req.body;
     const updUsuario = {
         login: username,
@@ -109,7 +109,7 @@ ruta.post('/edtusuario/:id_usuario', async (req,res)=>{
 
     updUsuario.clave = await helpers.encryptPassword(password);
 
-    const link = await db_pool.query('UPDATE usuarios set ? WHERE id_usuario = ?', [updUsuario, id]);
+    const link = await db_pool.query('UPDATE usuarios set ? WHERE id_usuario = ?', [updUsuario, id_usuario]);
     req.flash('success', 'Registro fue actualizado...');
     res.redirect('/lstusuarios');
 })
@@ -117,9 +117,9 @@ ruta.post('/edtusuario/:id_usuario', async (req,res)=>{
 ruta.get('/dltusuario/:id_usuario', isLoggedIn, async (req, res)=>{
     //console.log(req.params.id);
     //res.send('eliminado');
-    const { id } = req.params;
+    const { id_usuario } = req.params;
     try {
-        await db_pool.query('DELETE FROM usuarios WHERE id = ?', [id]);
+        await db_pool.query('DELETE FROM usuarios WHERE id_usuario = ?', [id_usuario]);
         req.flash('success','Registro eliminado...');         
     } catch (error) {
         req.flash('message', 'Hubo un error al intentar borrar el registro...');
